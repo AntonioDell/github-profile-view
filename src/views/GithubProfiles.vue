@@ -11,14 +11,19 @@
     <h2>Loaded profiles</h2>
     <p v-if="profiles.length === 0">No profiles loaded</p>
     <div class="container">
-      <div class="row g-2">
+      <div
+        class="
+          row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-xl-4
+          g-2 g-lg-3
+        "
+      >
         <profile
           v-for="profile in profiles"
           :key="profile.username"
           :name="profile.name"
           :avatarUrl="profile.avatarUrl"
           :bio="profile.bio"
-          class="col-4"
+          class="col"
         />
       </div>
     </div>
@@ -45,6 +50,19 @@ export default {
         return;
       }
       this.profiles.unshift(profile);
+    },
+    getProfilesRow(rowNumber) {
+      const lowerLimit = (rowNumber - 1) * 3;
+      const upperLimit = lowerLimit + 3;
+      console.log(rowNumber, lowerLimit, upperLimit);
+      return this.profiles.filter(
+        (_, index) => index >= lowerLimit && index < upperLimit
+      );
+    },
+  },
+  computed: {
+    rows() {
+      return Math.floor(this.profiles.length / 3) + 1;
     },
   },
 };

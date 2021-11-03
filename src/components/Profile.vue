@@ -49,7 +49,6 @@ export default {
 @import "~bootstrap/scss/mixins";
 
 .profile {
-  max-width: 33%;
   background: $dark;
   color: $light;
 }
