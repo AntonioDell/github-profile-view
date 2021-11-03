@@ -1,6 +1,6 @@
 <template>
   <article class="profile container">
-    <h3>{{ profileTitle }}</h3>
+    <h3 class="pt-2">{{ profileTitle }}</h3>
     <figure class="figure">
       <img v-show="!isAvatarLoaded" src="placeholder.png" />
       <img
@@ -11,7 +11,9 @@
         :alt="'Profile picture for' + name"
         class="figure-img img-fluid img-thumbnail rounded"
       />
-      <figcaption class="figure-caption">{{ profileBio }}</figcaption>
+      <figcaption class="figure-caption text-light">
+        {{ profileBio }}
+      </figcaption>
     </figure>
   </article>
 </template>
@@ -47,7 +49,8 @@ export default {
 @import "~bootstrap/scss/mixins";
 
 .profile {
-  border: 2px solid $secondary;
-  margin-bottom: 1em;
+  max-width: 33%;
+  background: $dark;
+  color: $light;
 }
 </style>

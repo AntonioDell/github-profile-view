@@ -10,14 +10,17 @@
   <section class="container">
     <h2>Loaded profiles</h2>
     <p v-if="profiles.length === 0">No profiles loaded</p>
-    <div class="profiles">
-      <profile
-        v-for="profile in profiles"
-        :key="profile.username"
-        :name="profile.name"
-        :avatarUrl="profile.avatarUrl"
-        :bio="profile.bio"
-      />
+    <div class="container">
+      <div class="row g-2">
+        <profile
+          v-for="profile in profiles"
+          :key="profile.username"
+          :name="profile.name"
+          :avatarUrl="profile.avatarUrl"
+          :bio="profile.bio"
+          class="col-4"
+        />
+      </div>
     </div>
   </section>
 </template>
@@ -46,8 +49,4 @@ export default {
   },
 };
 </script>
-<style lang="scss" scoped>
-.profiles {
-  margin-top: 1em;
-}
-</style>
+<style lang="scss" scoped></style>
